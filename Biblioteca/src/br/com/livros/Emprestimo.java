@@ -5,10 +5,10 @@ import java.time.Period;
 
 public class Emprestimo {
 		private Livro livro;
-		LocalDate dataEmprestimo;
-		LocalDate dataDevolucao;
+		private LocalDate dataEmprestimo;
+		private LocalDate dataDevolucao;
 		
-		public void constructor(Livro livro,LocalDate dataEmprestimo,LocalDate dataDevolucao){
+		public void construtor(Livro livro,LocalDate dataEmprestimo,LocalDate dataDevolucao){
 			this.livro = livro;
 			this.dataEmprestimo = dataEmprestimo;
 			this.dataDevolucao = dataDevolucao;
@@ -31,7 +31,7 @@ public class Emprestimo {
 		public void setdataDevolucao(LocalDate dataDevolucao) {
 			this.dataDevolucao = dataDevolucao;
 		}
-		void diasRestante(Period period, LocalDate dataAtual) {
+		void diasRestante(Period period) {
 			
 			if (dataDevolucao.isBefore(LocalDate.now())){
 				System.out.println("O livro ja foi devolvido");
@@ -40,6 +40,9 @@ public class Emprestimo {
 			period = Period.between(LocalDate.now(), dataDevolucao);
 			System.out.println("Faltam" + period + "dias ate a devolucao");
 			}
+		}
+		public boolean atrasado() {
+			return LocalDate.now().isAfter(dataDevolucao);
 		}
 	
 	}
