@@ -2,6 +2,7 @@ package br.com.livros;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class Emprestimo {
 		private Livro livro;
@@ -41,7 +42,13 @@ public class Emprestimo {
 			System.out.println("Faltam" + period + "dias ate a devolucao");
 			}
 		}
+		DateTimeFormatter formatadorBarra = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+		//Ssdt1 = LocalDate.parse(dataDevolucao,formatadorBarra);
+		
 		public void main(String[]args) {
+			Emprestimo e1 = new Emprestimo();
+			e1.livro = livro;
+		//	e1.dataDevolucao = "11-20-2000";
 			
 		}
 }

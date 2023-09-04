@@ -9,7 +9,7 @@ public class Livro {
 	
 	public void construtorLivro(int Codigo, String Titulo,String Autor, boolean estaEmprestado) {
 		this.Codigo = Codigo;
-		this.Titulo = Titulo;
+		Livro.Titulo = Titulo;
 		this.Autor = Autor;
 		this.estaEmprestado = estaEmprestado;
 	}
@@ -61,8 +61,9 @@ public class Livro {
 		}	
 	}
 	public static void main(String[]args) {
+
 		Livro livro1 = new Livro();
-		Livro.Titulo= livro1.setTitulo(Titulo);
+		Livro.Titulo= livro1.getTitulo();
 		
 		System.out.println(Livro.Titulo);
 		
