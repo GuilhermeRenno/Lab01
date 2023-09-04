@@ -7,6 +7,12 @@ public class Livro {
 	private String Autor;
 	private boolean estaEmprestado;
 	
+	public void construtorLivro(int Codigo, String Titulo,String Autor, boolean estaEmprestado) {
+		this.Codigo = Codigo;
+		this.Titulo = Titulo;
+		this.Autor = Autor;
+		this.estaEmprestado = estaEmprestado;
+	}
 	
 	public int getCodigo() {
 		return Codigo;
