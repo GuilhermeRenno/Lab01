@@ -1,7 +1,10 @@
 package br.com.livros;
 
+
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.temporal.ChronoUnit;
+
+
 
 public class Emprestimo {
 		private Livro livro;
@@ -31,18 +34,22 @@ public class Emprestimo {
 		public void setdataDevolucao(LocalDate dataDevolucao) {
 			this.dataDevolucao = dataDevolucao;
 		}
-		void diasRestante(Period period) {
-			
-			if (dataDevolucao.isBefore(LocalDate.now())){
-				System.out.println("O livro ja foi devolvido");
+		public long diasRestante() {
+					if (dataDevolucao.isBefore(dataEmprestimo)){
+						return 0;
 			}
 			else {
-			period = Period.between(LocalDate.now(), dataDevolucao);
-			System.out.println("Faltam" + period + "dias ate a devolucao");
+			long dias = ChronoUnit.DAYS.between(dataEmprestimo,dataDevolucao);
+			 return dias;
 			}
 		}
-		public boolean atrasado() {
-			return LocalDate.now().isAfter(dataDevolucao);
+		public String atrasado() {
+			boolean atr = LocalDate.now().isAfter(dataDevolucao);
+			if(atr == false) {
+				return "Nao";
+			}else {
+				return "Sim";
+			}
 		}
 	
 	}

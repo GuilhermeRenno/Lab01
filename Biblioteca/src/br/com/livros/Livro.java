@@ -53,11 +53,11 @@ public class Livro {
 	}
 	public void devolver() {
 		if (estaEmprestado==true) {
-				System.out.println("Devolvido com sucesso!!!!"); 
+				System.out.println("O livro "+this.getTitulo() + " foi devolvido com sucesso!!!!"); 
 				this.estaEmprestado=false;
 			}
 		else {
-			System.out.println("O livro não esta emprestado!!!!"); 
+			System.out.println("O livro "+ this.getTitulo()+ " não esta emprestado!!!!"); 
 		}	
 	}
 	public static void main(String[]args) {
